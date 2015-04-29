@@ -1,0 +1,25 @@
+
+inputs:
+	Price( Close ),
+	Run( 3 );
+
+variables:
+	Rise( 0 ),
+	AvgWtd ( 0 ),
+	Slope( 0 );
+	
+begin
+	AvgWtd = WAverage( Price, Run );
+	Rise = AvgWtd - AvgWtd[Run];
+	Slope = Rise / Run;
+
+Condition1 = Slope > Slope[1] and Slope[1] < Slope[2] and Slope < 0;
+Condition2 = Slope < Slope[1] and Slope[1] > Slope[2] and Slope > 0;
+
+if MarketPosition = 0 then begin
+	If Condition1 then buy at next bar market;
+	//If Condition3 then sellshort next bar at market;
+end;
+
+If MarketPosition = 1 and Condition2 then sell next bar at market;
+end;

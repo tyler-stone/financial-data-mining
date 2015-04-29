@@ -26,6 +26,8 @@ function [inds,cidx] = kmedoids2(D,k)
 % Written by Ben Sapp, September 2010
 % benjamin.sapp@gmail.com
 
+rng(50);   % SET CONSISTENT SEED TO FORM PREDICTABLE CLUSTERS
+
 if nargin == 0
     demo();
     return;

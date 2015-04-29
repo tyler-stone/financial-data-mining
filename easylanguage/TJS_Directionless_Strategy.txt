@@ -1,0 +1,19 @@
+{ Helpful instructions on the use of EasyLanguage, such as this, appear below and are 
+  contained within French curly braces {}.  There is no need to erase these 
+  instructions when using EasyLanguage in order for it to function properly, because 
+  this text will be ignored. }
+
+{ STEP 1 OF 2: Replace <CRITERIA> with the criteria that will trigger a Buy at the open 
+  of the next bar using a market order. }
+
+Input: Length(10);
+
+IF CurrentBar > 1 and
+SlowD(Length) < 35 and
+SlowK(Length) crosses above
+SlowD(Length) then Buy next bar at market;
+
+IF CurrentBar > 1 and
+Slowd(Length) > 65 and
+SlowK(Length) crosses below
+SlowD(Length) then Sell next bar at market;

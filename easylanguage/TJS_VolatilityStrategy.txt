@@ -1,0 +1,14 @@
+{ Helpful instructions on the use of EasyLanguage, such as this, appear below and are 
+  contained within French curly braces {}.  There is no need to erase these 
+  instructions when using EasyLanguage in order for it to function properly, because 
+  this text will be ignored. }
+
+{ STEP 1 OF 2: Replace <CRITERIA> with the criteria that will trigger a Buy at the open 
+  of the next bar using a market order. }
+
+IF Open of next bar > High or Open of next bar < Low then Buy next bar at Close + Range Stop;
+
+IF Open of next bar < Low or Open of next bar > High then Sell short next bar at Close - Range Stop;
+
+Sell next bar at market;
+Buy to cover next bar at market;

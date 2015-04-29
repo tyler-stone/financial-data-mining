@@ -1,8 +1,9 @@
-function [ts, tickers, clean] = loadStocks(filename,duration)
+function [ts,sp,tickers] = loadStocks(timeSeriesFilename,singlePointFilename,duration)
 
-ts = csvread(filename,0,1);
-raw = importdata(filename);
+ts = csvread(timeSeriesFilename,0,1);
+raw = importdata(timeSeriesFilename);
 tickers = raw.textdata;
-clean = preprocess(ts,duration);
+
+sp = transpose(csvread(singlePointFilename,1,1));
 
 
